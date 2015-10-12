@@ -1,5 +1,5 @@
 def lcs_table(str1, str2)
-  # Create your DP matrix in here.
+  #DP matrix
   grid = Array.new(str1.length + 1) { Array.new(str2.length + 1) }
 
   (0..str1.length).each do |el|
@@ -9,8 +9,6 @@ def lcs_table(str1, str2)
   (0..str2.length).each do |el|
     grid[0][el] = 0
   end
-
-  # return grid
 
   i = 1
 
@@ -36,7 +34,7 @@ def lcs_length(str1, str2)
 end
 
 def lcs(str1, str2)
-  # actually generate the LCS! Work backwards from your DP matrix.
+  # find path from DP matrix.
   grid = lcs_table(str1, str2)
   i = grid.length - 1
   j = grid[0].length - 1
@@ -94,8 +92,8 @@ def levenshtein_grid(str1, str2)
 end
 
 def edit_distance(str1, str2)
+  # Levenshtein distance between the two strings
   costs = EDIT_COSTS
-  # Figure out the Levenshtein distance between these two strings!
   levenshtein_grid(str1, str2).last.last
 end
 
